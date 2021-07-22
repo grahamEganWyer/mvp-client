@@ -1,0 +1,222 @@
+html{
+  background-color: rgb(2, 5, 46);
+  color: white;
+}
+
+h1{
+  text-shadow: 2px 2px rgb(141, 141, 141);
+}
+
+header{
+  background-color: black;
+  margin: 2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content-wrapper{
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Charcter Overview Section */
+.character-overview{
+  display: flex;
+  justify-content: space-around;
+  background-color: purple;
+  color: darkgray;
+  border: solid white 2px;
+}
+
+.character-badge{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.character-name{
+  text-decoration: underline;
+  text-shadow: 2px 2px rgb(88, 0, 88);
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.server-name{
+  text-shadow: 2px 2px rgb(88, 0, 88);
+}
+
+h4{
+  text-shadow: 2px 2px rgb(88, 0, 88);
+}
+
+.spec-section{
+  background-color: orange;
+  border: solid white 2px;
+}
+
+/* Spec Data Section */
+
+
+.spec-section-header h1{
+  text-align: center;
+  text-shadow: 2px 2px rgb(161, 105, 0);
+}
+
+.spec-section-body{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+}
+
+.spec-data-wrapper{
+  box-shadow: 5px 5px 8px rgb(161, 105, 0);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border: solid white 1px;
+}
+
+.spec-badge{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid white 1px;
+}
+
+.spec-stats{
+  display: flex;
+  flex-direction: column;
+  border: solid white 1px;
+  padding: 5px;
+}
+
+.rank-header{
+  text-align: center;
+  border-bottom: dotted white 1px;
+}
+
+.rank-data{
+  padding-top: 5px;
+}
+
+/* Encounter Data Section */
+.encounters-section{
+  background-color: blue;
+  color: white;
+  border: solid white 2px;
+}
+
+.encounters-section-header h1{
+  text-shadow: 2px 2px rgb(0, 0, 124);
+  text-align: center;
+}
+
+.encounters-section-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3%;
+}
+
+.encounter-data-wrapper{
+  box-shadow: 5px 5px 8px rgb(0, 0, 124);
+  width: 90%;
+  min-height: 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: solid white 1px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.encounter-badge{
+  display: flex;
+  border: solid white 1px;
+  padding: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.encounter-name{
+  font-weight: bold;
+}
+
+.encounter-best-percentile{
+  display: flex;
+  border: solid white 1px;
+  padding: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.encounter-best-percentile div{
+  padding-left: 5px;
+}
+
+.encounter-stats{
+  display: flex;
+  border: solid white 1px;
+  padding: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.encounter-stats div{
+  padding-left: 5px;
+}
+
+.encounter-rankings{
+  display: flex;
+  border: solid white 1px;
+  padding: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.encounter-rankings div{
+  padding-left: 5px;
+}
+
+/* React Default */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
