@@ -32,22 +32,24 @@ export const AppContainer = () => {
           <h1>MVP</h1>
           
           <section>
-              <input type="text" id="name" placeholder="Character Name" value={name} onChange={e => setName(e.target.value)}/>
-              <input type="text" id="serverSlug" placeholder="Server Name" value={serverSlug} onChange={e => setServerSlug(e.target.value)}/>
-              <input type="text" id="serverRegion" placeholder="Server Region" value={serverRegion} onChange={e => setServerRegion(e.target.value)}/>
-              <button onClick={handleSearch}>Search</button>
+            <form onSubmit={handleSearch}>
+                <input type="text" id="name" placeholder="Character Name" value={name} onChange={e => setName(e.target.value)}/>
+                <input type="text" id="serverSlug" placeholder="Server Name" value={serverSlug} onChange={e => setServerSlug(e.target.value)}/>
+                <input type="text" id="serverRegion" placeholder="Server Region" value={serverRegion} onChange={e => setServerRegion(e.target.value)}/>
+                <button onClick={handleSearch}>Search</button>
+            </form>
           </section>
         </header>
   
         {console.log(characterPerformance)}
-        {Object.keys(characterPerformance).length && (
+        {!!Object.keys(characterPerformance).length && (
 
           <section className="content-wrapper">
 
             <section className="character-overview">
               <div className="character-badge">
-                <div className="character-name">{capitalise(name)}</div>
-                <div className="server-name">{capitalise(serverSlug)} ({serverRegion})</div>
+                <div className="character-name">{name ? capitalise(name) : "Character"}</div>
+                <div className="server-name">{serverSlug ? capitalise(serverSlug) : "Server"} ({serverRegion ? serverRegion : "Region"})</div>
               </div>
               <div className="charcter-avg-overview">
                 <h4>Best Parse Average: <span>{roundTwoPlaces(characterPerformance.bestPerformanceAverage)}</span></h4>
