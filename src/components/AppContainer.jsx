@@ -5,6 +5,7 @@ import { AllStars } from './AllStars';
 import { ErrorWarning } from './ErrorWarning';
 import { Encounters } from './Encounters';
 import { roundTwoPlaces, capitalise } from './utils';
+import { AuctionItems } from './AuctionItems';
 
 export const AppContainer = () => {
   const [characterPerformance, setCharacterPerformance] = useState({});
@@ -13,6 +14,7 @@ export const AppContainer = () => {
   const [serverRegion, setServerRegion] = useState('');
   const [apiError, setApiError] = useState('');
   const [isFetching, setIsFetching] = useState(false);
+  const [items, setItems] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -29,11 +31,21 @@ export const AppContainer = () => {
       .then((res) => {
         setApiError('');
         setCharacterPerformance(res.data);
-        setIsFetching(false);
       })
       .catch((error) => {
-        setIsFetching(false);
         setApiError(error.response.data);
+      }).finally(() => {
+        setIsFetching(false);
+      });
+  };
+  const handleItemDisplay = (e) => {
+    e.preventDefault();
+    setIsFetching(true);
+    axios
+      .get('/api/nexus-hub')
+      .then((res) => {
+        setItems(res.data);
+        setIsFetching(false);
       });
   };
 
@@ -41,7 +53,6 @@ export const AppContainer = () => {
     <>
       <header>
         <h1>MVP</h1>
-
         <section>
           <form onSubmit={handleSearch}>
             <input type="text" id="name" placeholder="Character Name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -50,11 +61,18 @@ export const AppContainer = () => {
             <input type="submit" value="Search" disabled={isFetching} />
           </form>
         </section>
+        <section>
+          <form onSubmit={handleItemDisplay}>
+            <input type="submit" value="cool items" disabled={isFetching} />
+          </form>
+        </section>
       </header>
 
       {console.log(characterPerformance)}
 
       <section className="content-wrapper">
+        {items && <AuctionItems items={items} />}
+
         {isFetching
           && (
           <div className="loading-wrapper">

@@ -71,6 +71,17 @@ h4{
 
 /* Spec Data Section */
 
+.auction-item-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.auction-item{
+  border: solid white 1px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 .spec-section-header h1{
   text-align: center;
